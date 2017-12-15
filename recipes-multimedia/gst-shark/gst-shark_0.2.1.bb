@@ -1,4 +1,4 @@
-DESCRIPTION = "GST Shark Tracer" 
+DESCRIPTION = "RidgeRun Gst-Shark Tracers" 
 SECTION = "multimedia" 
 LICENSE = "GPLv2+" 
 LIC_FILES_CHKSUM = "file://COPYING;md5=e1caa368743492879002ad032445fa97" 
@@ -6,12 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=e1caa368743492879002ad032445fa97"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad "
 
 SRCBRANCH ?= "master"
-SRCREV = "fc0538d7fabee37a818e8538b04f5f7a7a1015bb"
+SRCREV = "37e27a830903537a1cb585813ba8e1f9f2e9501a"
 SRC_URI = "git://git@github.com/RidgeRun/gst-shark.git;protocol=ssh;branch=${SRCBRANCH}"
-
-#SRC_URI = "git://git@bitbucket.org/cmorgan/somerepository.git;protocol=ssh"
-
-# SRC_URI = "git://github.com/Freescale/gstreamer-imx.git;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
@@ -31,5 +27,3 @@ do_configure() {
 ${S}/autogen.sh --noconfigure
 oe_runconf
 }
-
-COMPATIBLE_MACHINE = "(mx6dl|mx6q|mx6sl|mx6sx|mx6ul|mx6ull|mx7d)"
