@@ -7,7 +7,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstre
 
 SRCBRANCH ?= "master"
 SRCREV = "097a086a8606dcb368c7d38c7ec4fefc2497401b"
-SRC_URI = "git://git@github.com/RidgeRun/gstd-1.x.git;protocol=ssh;branch=${SRCBRANCH} \
+SRC_URI = "git://git@github.com/RidgeRun/gstd-1.x.git;protocol=https;branch=${SRCBRANCH} \
 	   file://0001-gstd-yocto-compatibility.patch"
 
 S = "${WORKDIR}/git"
