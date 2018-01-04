@@ -6,13 +6,15 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=e1caa368743492879002ad032445fa97"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad "
 
 SRCBRANCH ?= "master"
-SRC_URI = " \
-	git://git@github.com/RidgeRun/gst-shark.git;protocol=https;branch=${SRCBRANCH};name=base \
-	git://git@anongit.freedesktop.org/gstreamer/common;protocol=https;destsuffix=git/common;name=common; \
-	"
 
 SRCREV_base = "64ca36ffc211d09059dec872ddab74de75af8a24"
 SRCREV_common = "b64f03f6090245624608beb5d2fff335e23a01c0"
+
+SRC_URI[common.md5sum] = "7cf52612fd700cc554bf3f2e497602f7"
+SRC_URI = " \
+    git://git@github.com/RidgeRun/gst-shark.git;protocol=https;branch=${SRCBRANCH};name=base \
+    https://anongit.freedesktop.org/git/gstreamer/common.git;protocol=https;destsuffix=git/common;name=common; \
+    "
 
 S = "${WORKDIR}/git"
 
