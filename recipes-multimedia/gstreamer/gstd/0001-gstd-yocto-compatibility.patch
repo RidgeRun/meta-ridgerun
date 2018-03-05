@@ -3,6 +3,8 @@ From: Carlos <carlos.rodriguez@ridgerun.com>
 Date: Fri, 15 Dec 2017 10:14:05 -0600
 Subject: [PATCH] gstd:yocto compatibility
 
+Upstream-Status: Submitted
+Signed-off-by: Carlos Rodriguez <carlos.rodriguez@ridgerun.com>
 ---
  autogen.sh                      | 8 +++++++-
  docs/reference/gstd/Makefile.am | 2 +-
