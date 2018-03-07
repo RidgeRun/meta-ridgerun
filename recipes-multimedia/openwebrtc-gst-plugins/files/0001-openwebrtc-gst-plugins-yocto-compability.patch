@@ -1,0 +1,24 @@
+Upstream-Status: Submitted
+Signed-off-by: Enrique Ramírez Villalobos <enrique.ramirez@ridgerun.com>
+
+diff --git a/autogen.sh b/autogen.sh
+index 0e6b324..1d145d2 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -1,8 +1,16 @@
+ #!/bin/bash -e
+ 
++test -n "$srcdir" || srcdir=`dirname "$0"`
++test -n "$srcdir" || srcdir=.
++
++olddir=`pwd`
++cd "$srcdir"
++touch NEWS README AUTHORS ChangeLog;
++
+ mkdir -p m4 # seems to be needed when building from a clean checkout.
+ autoreconf --verbose --force --install --make || {
+     echo 'autogen.sh failed';
+     exit 1;
+ }
+ 
++cd "$olddir"

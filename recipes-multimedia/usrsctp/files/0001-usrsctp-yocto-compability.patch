@@ -1,0 +1,57 @@
+Upstream-Status: Submitted
+Signed-off-by: Enrique Ramírez <enrique.ramirez@ridgerun.com>
+
+diff --git a/bootstrap b/bootstrap
+index 89c7bba..3e6c637 100755
+--- a/bootstrap
++++ b/bootstrap
+@@ -29,38 +29,17 @@
+ # SUCH DAMAGE.
+ #
+ 
+-#bail out on error
+-set -e
++test -n "$srcdir" || srcdir=`dirname "$0"`
++test -n "$srcdir" || srcdir=.
+ 
+-#detect (g)libtoolize
+-if which libtoolize >/dev/null
+-then
+-	_LIBTOOLIZE=`which libtoolize`
+-elif which glibtoolize >/dev/null
+-then
+-	_LIBTOOLIZE=`which glibtoolize`
+-else
+-	echo "ERROR: I cannot find libtoolize or glibtoolize!"
+-	exit 1
+-fi
++olddir=`pwd`
++cd "$srcdir"
++touch NEWS README AUTHORS ChangeLog;
+ 
+-#execute (g)libtoolize
+-${_LIBTOOLIZE}
+-
+-#execute aclocal
+-if [ -e /usr/local/share/aclocal ]
+-then
+-   aclocal -I /usr/local/share/aclocal
+-elif [ -e /usr/share/aclocal ]
+-then
+-   aclocal -I /usr/share/aclocal
+-else
+-   aclocal
+-fi
+-
+-#execute autoconf
+-autoconf
+-
+-#generate the ./configure
+-automake --foreign --add-missing --copy
++mkdir m4;
+ 
++autoreconf --verbose --force --install --make || {
++ echo 'bootstrap failed';
++ exit 1;
++}
++cd "$olddir"
