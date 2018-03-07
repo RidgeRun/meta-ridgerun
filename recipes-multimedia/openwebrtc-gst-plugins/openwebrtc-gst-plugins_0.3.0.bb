@@ -18,8 +18,6 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-PACKAGECONFIG_CONFARGS = ""
-
 FILES_${PN} += "\
 	${libdir}/gstreamer-1.0/libgstvideorepair.la  \
 	${libdir}/gstreamer-1.0/libgstsctp.so \
