@@ -24,8 +24,6 @@ PACKAGECONFIG_CONFARGS = " \
 	--disable-gtk-doc \
 "
 FILES_${PN} += "\
-	${libdir}/gstreamer-1.0/libgstnice010.la \
-	${libdir}/gstreamer-1.0/libgstnice010.so \
 	${libdir}/gstreamer-1.0/libgstwebrtc.so \
 	${libdir}/gstreamer-1.0/libgstwebrtc.la \
 "
