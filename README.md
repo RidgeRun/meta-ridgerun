@@ -39,7 +39,7 @@ bitbake gstd gst-shark
 
 -Modify SRC_URI with the correct gst-webrtc URL by changing **<Customer-Directory>** with your own.
 
--Make sure you have added your ssh key to your GitLab account and your the GitLab key is added to your list of known hosts on the PC.
+-Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
 
 - Finally build recipe
 ```
