@@ -32,14 +32,14 @@ bitbake gstd gst-shark
 
 ## Building Gst-WebRTC (Private)
 
--GstWebRTC is an add-on to RidgeRun's professional SDK. You can purchase GstWebRTC with full source code, from:
+- GstWebRTC is an add-on to RidgeRun's professional SDK. You can purchase GstWebRTC with full source code, from:
     https://www.ridgerun.com/store/GSTWebRTC-p74337777
 
--Once you have access to the repository, please open gst-webrtc_1.8.1.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+- Once you have access to the repository, please open gst-webrtc_1.8.1.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
 
--Modify SRC_URI with the correct gst-webrtc URL by changing **<Customer-Directory>** with your own.
+- Modify SRC_URI with the correct gst-webrtc URL by changing **<Customer-Directory>** with your own.
 
--Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
+- Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
 
 - Finally build recipe
 ```
