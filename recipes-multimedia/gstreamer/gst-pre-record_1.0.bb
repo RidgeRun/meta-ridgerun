@@ -1,4 +1,4 @@
-SUMMARY = "PreTriger"
+SUMMARY = "Pre-Record"
 DESCRIPTION = "GStreamer element that pre-records data continuously into a FIFO"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=GStreamer_pre-record_element"
 SECTION = "multimedia"
@@ -10,7 +10,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libffi"
 
 SRCBRANCH ?= "master"
 SRCREV = "64ae60cc8bc10bc75bc464da71d325a7147d089e"
-SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-pre-trigger.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-pre-record.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
