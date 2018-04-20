@@ -6,7 +6,7 @@ LICENSE = "Proprietary"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=1887e8dfc90a84423fd31d1d45ee6718"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
+DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libffi"
 
 SRCBRANCH ?= "master"
 SRCREV = "64ae60cc8bc10bc75bc464da71d325a7147d089e"
