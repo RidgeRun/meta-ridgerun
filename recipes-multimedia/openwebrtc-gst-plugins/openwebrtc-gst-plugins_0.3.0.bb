@@ -14,6 +14,7 @@ SRCREV = "91d339b455c69c16dfd51a3a2f37c1127d4880cc"
 SRC_URI = " \
     git://git@github.com/EricssonResearch/openwebrtc-gst-plugins.git;protocol=http;branch=${SRCBRANCH} \
     file://0001-openwebrtc-gst-plugins-yocto-compability.patch \
+    file://0002-Explicitly-include-stdint-library.patch \
     "
 
 S = "${WORKDIR}/git"

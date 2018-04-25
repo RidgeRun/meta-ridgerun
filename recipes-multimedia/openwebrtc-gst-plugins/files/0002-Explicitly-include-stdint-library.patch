@@ -1,0 +1,25 @@
+From cec6a0ff69614d0171bd0f86867fe8adb86f3d03 Mon Sep 17 00:00:00 2001
+From: carlos-aguero <carlos.aguero@ridgerun.com>
+Date: Wed, 25 Apr 2018 10:03:55 -0600
+Subject: [PATCH] Explicitly include stdint library
+
+Signed-off-by: carlos-aguero <carlos.aguero@ridgerun.com>
+---
+ ext/sctp/sctpassociation.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/ext/sctp/sctpassociation.c b/ext/sctp/sctpassociation.c
+index 65469d0..5f0311f 100644
+--- a/ext/sctp/sctpassociation.c
++++ b/ext/sctp/sctpassociation.c
+@@ -32,6 +32,7 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <stdlib.h>
++#include <stdint.h>
+ 
+ #define GST_SCTP_ASSOCIATION_STATE_TYPE (gst_sctp_association_state_get_type())
+ static GType gst_sctp_association_state_get_type(void)
+-- 
+2.7.4
+
