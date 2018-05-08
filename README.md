@@ -67,3 +67,21 @@ bitbake gst-pre-record
 ```
 - For more information:
     https://developer.ridgerun.com/wiki/index.php?title=GStreamer_pre-record_element#Building_on_Yocto
+
+## Building Gst-Emboverlay (Private)
+
+- Embedded Overlay is an add-on to RidgeRun's professional SDK. You can purchase Embedded Overlay with full source code, from:
+    https://www.ridgerun.com/store/GStreamer-Fast-Text-Graphics-Overlay-p59350604
+
+- Once you have access to the repository, please open gst-emboverlay_1.0.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+
+- Modify SRC_URI with the correct gst-emboverlay URL by changing **<Customer-Directory>** with your own.
+
+- Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
+
+- Finally build recipe
+```
+bitbake gst-emboverlay
+```
+- For more information:
+    https://developer.ridgerun.com/wiki/index.php?title=Fast_GStreamer_overlay_element#Building_on_Yocto
