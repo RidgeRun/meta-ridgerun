@@ -1,5 +1,5 @@
 SUMMARY = "Embedded Overlay"
-DESCRIPTION = "GStreamer element used to overlay images and text over video streams or photos"
+DESCRIPTION = "GStreamer element used to overlay images and text over video streams"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php/Fast_GStreamer_overlay_element"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
