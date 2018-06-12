@@ -103,8 +103,7 @@ bitbake gst-emboverlay
 bitbake gst-rtspsink
 ```
 - For more information:
-    *https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink
-    *https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink_-_Building_the_plug-in#Building_on_Yocto
+    https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink_-_Building_the_plug-in#Building_on_Yocto
 
 
 
