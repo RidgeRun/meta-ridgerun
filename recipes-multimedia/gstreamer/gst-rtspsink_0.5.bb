@@ -1,4 +1,4 @@
-SUMMARY = "Rtspsink"
+SUMMARY = "GstRtspSink"
 DESCRIPTION = "GStreamer element which permits high performance streaming to multiple computers using the RTSP / RTP protocols"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink"
 SECTION = "multimedia"
