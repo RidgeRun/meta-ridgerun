@@ -10,7 +10,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad json-
 
 SRCBRANCH ?= "master"
 
-SRCREV_base = "52713a36f056d99e10e95de556eb164d9340ff9f"
+SRCREV_base = "e92de7a5c14428fdf7d6be31e31c21fca89c345a"
 SRCREV_common = "b64f03f6090245624608beb5d2fff335e23a01c0"
 
 SRC_URI = " \ 
