@@ -37,7 +37,7 @@ bitbake gstd gst-shark
 - GstWebRTC is an add-on to RidgeRun's professional SDK. You can purchase GstWebRTC with full source code, from:
     https://www.ridgerun.com/store/GSTWebRTC-p74337777
 
-- Once you have access to the repository, please open gst-webrtc_1.8.1.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+- Once you have access to the repository, please open gst-webrtc_1.11.2.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
 
 - Modify SRC_URI with the correct gst-webrtc URL by changing **<Customer-Directory>** with your own.
 
