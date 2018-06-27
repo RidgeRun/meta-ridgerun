@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=1887e8dfc90a84423fd31d1d45ee6718"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libffi gstreamer1.0-rtsp-server"
 
 SRCBRANCH ?= "master"
-SRCREV = "41daff12b5e1c6bf809bff806bf6cde77a3b7561"
+SRCREV = "6f49fdfc2096d4371e83a99bdb20d35d71da519c"
 SRC_URI = "git://git@github.com/RidgeRun/orders/<Customer-Directory>/gst-rtspsink.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
