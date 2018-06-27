@@ -10,7 +10,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libffi gstreamer1.0-rtsp-serve
 
 SRCBRANCH ?= "master"
 SRCREV = "41daff12b5e1c6bf809bff806bf6cde77a3b7561"
-SRC_URI = "git://git@github.com/RidgeRun/orders/<Customer-Directory>/relysys-rtspsink.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = "git://git@github.com/RidgeRun/orders/<Customer-Directory>/gst-rtspsink.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
