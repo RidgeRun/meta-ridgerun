@@ -92,7 +92,7 @@ bitbake gst-emboverlay
 - RTSP Sink is a GStreamer element which permits high performance streaming to multiple computers using the RTSP / RTP protocols. You can purchase Gst-RtspSink with full source code, from:
     https://www.ridgerun.com/store/GStreamer-multi-stream-mulit-channel-RTSP-server-element-p59350595
 
-- Once you have access to the repository, please open gst-rtspsink_0.5.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+- Once you have access to the repository, please open gst-rtsp-sink_0.5.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
 
 - Modify SRC_URI with the correct gst-rtspsink URL by changing **<Customer-Directory>** with your own.
 
@@ -100,7 +100,7 @@ bitbake gst-emboverlay
 
 - Finally build recipe
 ```
-bitbake gst-rtspsink
+bitbake gst-rtsp-sink
 ```
 - For more information:
     https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink_-_Building_the_plug-in#Building_on_Yocto
