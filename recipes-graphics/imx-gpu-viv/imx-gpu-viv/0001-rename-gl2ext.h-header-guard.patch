@@ -1,0 +1,25 @@
+From d3f0713554165c614f79194eff176bb540249621 Mon Sep 17 00:00:00 2001
+From: jcaballeros <jennifer.caballero@ridgerun.com>
+Date: Wed, 11 Jul 2018 14:12:06 -0600
+Subject: [PATCH] imx-gpu-viv: changing header guard for gl2ext.h due to
+ conflict with QT headers
+
+---
+ gpu-core/usr/include/GLES2/gl2ext.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gpu-core/usr/include/GLES2/gl2ext.h b/gpu-core/usr/include/GLES2/gl2ext.h
+index b7cb2b8..81f4724 100644
+--- a/gpu-core/usr/include/GLES2/gl2ext.h
++++ b/gpu-core/usr/include/GLES2/gl2ext.h
+@@ -1,5 +1,5 @@
+-#ifndef __gl2ext_h_
+-#define __gl2ext_h_ 1
++#ifndef __gl2ext_orig_h_
++#define __gl2ext_orig_h_ 1
+ 
+ #ifdef __cplusplus
+ extern "C" {
+-- 
+2.11.0
+
