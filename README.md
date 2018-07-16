@@ -106,4 +106,23 @@ bitbake gst-rtsp-sink
     https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink_-_Building_the_plug-in#Building_on_Yocto
 
 
+## Building Gst-Qt-Overlay (Private)
+
+- QtOverlay is a GStreamer element that renders qt graphics on a video stream. You can purchase Gst-Qt-overlay with full source code, from:
+    https://www.ridgerun.com/store/GStreamer-QT-Overlay-p84694153
+
+- Once you have access to the repository, please open gst-qt-overlay_1.0.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+
+- Modify SRC_URI with the correct gst-qt-overlay URL by changing **<Customer-Directory>** with your own.
+
+- Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
+
+- Finally build recipe
+```
+bitbake gst-qt-overlay
+```
+- For more information:
+    https://developer.ridgerun.com/wiki/index.php?title=Gstreamer_QT_Overlay
+
+
 
