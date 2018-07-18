@@ -6,11 +6,12 @@ LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://COPYING;md5=2282fc857e14ce7b17c1c9d810504ac5"
 
 SRCBRANCH ?= "master"
+SRCREV = "a4c1a1b0d6a5eaa04fb96b5b35ebddb00e272b90"
 SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-qt-overlay.git;protocol=ssh;branch=${SRCBRANCH}"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstreamer1.0-plugins-imx qtbase qtbase-native qtdeclarative imx-gpu-viv libffi"
 
-S = "${WORKDIR}/gst-qt-overlay/"
+S = "${WORKDIR}/git/"
 
 FILES_${PN} += "${libdir}/gstreamer-1.0/libgstqtoverlay.so "
 
