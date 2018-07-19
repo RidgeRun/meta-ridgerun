@@ -122,7 +122,6 @@ bitbake gst-rtsp-sink
 bitbake gst-qt-overlay
 ```
 - For more information:
-    https://developer.ridgerun.com/wiki/index.php?title=Gstreamer_QT_Overlay
-
+    https://developer.ridgerun.com/wiki/index.php?title=Gstreamer_QT_Overlay#Building_GstQtOverlay_on_Yocto
 
 
