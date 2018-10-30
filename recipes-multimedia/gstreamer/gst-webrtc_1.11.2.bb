@@ -24,8 +24,8 @@ PACKAGECONFIG_CONFARGS = " \
 	--disable-gtk-doc \
 "
 FILES_${PN} += "\
-	${libdir}/gstreamer-1.0/libgstwebrtc.so \
-	${libdir}/gstreamer-1.0/libgstwebrtc.la \
+	${libdir}/gstreamer-1.0/libgstrrwebrtc.so \
+	${libdir}/gstreamer-1.0/libgstrrwebrtc.la \
 "
 
 inherit autotools pkgconfig gettext
