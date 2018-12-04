@@ -124,4 +124,14 @@ bitbake gst-qt-overlay
 - For more information:
     https://developer.ridgerun.com/wiki/index.php?title=Gstreamer_QT_Overlay#Building_GstQtOverlay_on_Yocto
 
+## Building Gst-Interpipes (Public)
+
+- GstInterpipe is a Gstreamer plug-in that allows communication between two independent pipelines. The plug-in consists of two elements, interpipesink and interpipesrc
+
+- To build the recipe:
+```
+bitbake gst-interpipe
+```
+- For more information:
+    https://developer.ridgerun.com/wiki/index.php?title=GstInterpipe
 
