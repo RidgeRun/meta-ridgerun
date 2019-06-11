@@ -19,5 +19,5 @@ FILES_${PN} += "${libdir}/*"
 
 do_install () {
 	install -d ${D}/lib/modules/${KERNEL_VERSION}/
-	install -m 0644 ${WORKDIR}/git/xilinx/xilinx.ko ${D}/lib/modules/${KERNEL_VERSION}/
+	install -m 0644 ${WORKDIR}/git/${PLATFORM}/${PLATFORM}.ko ${D}/lib/modules/${KERNEL_VERSION}/
 }
