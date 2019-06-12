@@ -10,7 +10,7 @@ inherit module
 # Set your settings here
 export PLATFORM = "xilinx"
 SRCBRANCH ?= "master"
-SRCREV = "113aa33260f65532027b0ff915d4453bf3227761"
+SRCREV = "41a884ba98f5eee4b642b764fca39cf34468fdd1"
 SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/pcie-fpga-v4l2.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git/"
