@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://copyrights.xml;md5=ade31ec14bee4ad39dd1a4c9f3a8f226"
 
 inherit module
 
+# Set your settings here
 export PLATFORM = "xilinx"
-
 SRCBRANCH ?= "master"
 SRCREV = "113aa33260f65532027b0ff915d4453bf3227761"
 SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/pcie-fpga-v4l2.git;protocol=ssh;branch=${SRCBRANCH}"
