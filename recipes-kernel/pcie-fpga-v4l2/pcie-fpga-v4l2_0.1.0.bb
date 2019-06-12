@@ -15,7 +15,7 @@ SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/pcie-fpga-
 
 S = "${WORKDIR}/git/"
 
-FILES_${PN} += "${libdir}/*"
+FILES_${PN} += "${libdir}/modules/${KERNEL_VERSION}/${PLATFORM}.ko"
 
 do_install () {
 	install -d ${D}/lib/modules/${KERNEL_VERSION}/
