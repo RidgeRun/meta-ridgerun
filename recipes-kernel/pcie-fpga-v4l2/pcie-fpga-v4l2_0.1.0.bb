@@ -1,5 +1,5 @@
 SUMMARY = "PCI-E driver module for FPGA with V4L2 support"
-DESCRIPTION = "Allows to send and retrieve data using Video for Linux from FPGA graphics accelerators connected through PCI-e using DMA transfers"
+DESCRIPTION = "Allows to send and retrieve data using V4L2 API from FPGA graphics accelerators connected through PCI-e using DMA transfers"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=V4L2_PCIe"
 LICENSE = "Propietary"
 
