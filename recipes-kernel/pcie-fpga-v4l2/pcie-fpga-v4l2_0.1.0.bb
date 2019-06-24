@@ -17,9 +17,9 @@ DRIVER_PREFIX = "src/kernel"
 
 S = "${WORKDIR}/git/${DRIVER_PREFIX}"
 
-FILES_${PN} += "${libdir}/modules/${KERNEL_VERSION}/${PLATFORM}.ko"
+FILES_${PN} += "${libdir}/modules/${KERNEL_VERSION}/kernel/drivers/media/pci/${PLATFORM}.ko"
 
 do_install () {
-	install -d ${D}/lib/modules/${KERNEL_VERSION}/
-	install -m 0644 ${WORKDIR}/git/${DRIVER_PREFIX}/${PLATFORM}/${PLATFORM}.ko ${D}/lib/modules/${KERNEL_VERSION}/
+	install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/media/pci/
+	install -m 0644 ${WORKDIR}/git/${DRIVER_PREFIX}/${PLATFORM}/${PLATFORM}.ko ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/media/pci/
 }
