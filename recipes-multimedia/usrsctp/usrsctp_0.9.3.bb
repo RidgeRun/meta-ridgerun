@@ -13,6 +13,8 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
+DEBUG_BUILD="1"
+
 inherit autotools pkgconfig gettext
 
 do_configure() {
