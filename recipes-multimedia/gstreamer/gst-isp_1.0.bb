@@ -11,8 +11,8 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gst-opencl"
 #provided by Ridgerun with your order.
 #######
 SRCBRANCH ?= "master"
-SRCREV = "" 
-CUSTOMER = 
+SRCREV = ""
+CUSTOMER = ""
 SRC_URI = " git://git@gitlab.com/RidgeRun/orders/${CUSTOMER}/gst-isp.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
