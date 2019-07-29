@@ -2,7 +2,7 @@ SUMMARY = "GStreamer Perf 1.0"
 DESCRIPTION = "GStreamer element to measure fps and performance"
 HOMEPAGE = "https://github.com/RidgeRun/gst-perf-autotools"
 SECTION = "multimedia"
-LICENSE = "CLOSED"
+LICENSE = "LGPLv2"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad"
 
