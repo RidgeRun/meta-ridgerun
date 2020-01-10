@@ -1,0 +1,52 @@
+Index: src/io_ftdi.c
+===================================================================
+--- src.orig/io_ftdi.c
++++ src/io_ftdi.c
+@@ -96,8 +96,9 @@ int io_scan(const unsigned char *TMS, co
+ {
+ 	unsigned char buffer[2*16384];
+ 	int i, res;
+-#ifndef USE_ASYNC
+-#error no async
++#ifdef USE_ASYNC
++	void *vres;
++#else
+ 	int r, t;
+ #endif
+ 
+@@ -145,7 +146,7 @@ int io_scan(const unsigned char *TMS, co
+ 			if (res < 0)
+ 			{
+ 				fprintf(stderr, "ftdi_read_data %d (%s)\n", res, ftdi_get_error_string(&ftdi));
+-				return -1
++				return -1;
+ 			}
+ 
+ 			i += res;
+@@ -154,10 +155,10 @@ int io_scan(const unsigned char *TMS, co
+ 		r += t;
+ 	}
+ #else
+-	res = ftdi_write_data_async(&ftdi, buffer, bits * 2);
+-	if (res < 0)
++	vres = ftdi_write_data_submit(&ftdi, buffer, bits * 2);
++	if (!vres)
+ 	{
+-		fprintf(stderr, "ftdi_write_data_async %d (%s)\n", res, ftdi_get_error_string(&ftdi));
++		fprintf(stderr, "ftdi_write_data_submit (%s)\n", ftdi_get_error_string(&ftdi));
+ 		return -1;
+ 	}
+ 
+Index: src/xvcd.c
+===================================================================
+--- src.orig/xvcd.c
++++ src/xvcd.c
+@@ -292,7 +292,7 @@ int main(int argc, char **argv)
+ 		return 1;
+ 	}
+ 	
+-	if (listen(s, 1) < 0)
++	if (listen(s, 5) < 0)
+ 	{
+ 		perror("listen");
+ 		return 1;
