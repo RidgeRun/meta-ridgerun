@@ -10,8 +10,8 @@ inherit module
 # Set your settings here
 export PLATFORM = "xilinx"
 SRCBRANCH ?= "master"
-SRCREV = "d270fab74441e8d8b832bd528478e15d9c3d33c0"
-SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/pcie-fpga-v4l2.git;protocol=ssh;branch=${SRCBRANCH}"
+SRCREV = "a0090e5d9216ea2347c829dfef38d35242f86605"
+SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/v4l2-fpga.git;protocol=ssh;branch=${SRCBRANCH}"
 
 DRIVER_PREFIX = "src/kernel"
 
