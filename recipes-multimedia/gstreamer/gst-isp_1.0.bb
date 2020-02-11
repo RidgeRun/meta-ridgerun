@@ -1,7 +1,7 @@
 SUMMARY = "Gst-ISP plugin"
 DESCRIPTION = "Gst-ISP plugin"
 SECTION = "multimedia"
-LICENSE = "Proprietary"
+LICENSE = "CLOSED"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gst-opencl"
 
