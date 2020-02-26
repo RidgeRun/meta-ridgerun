@@ -16,6 +16,7 @@ do_install () {
 	install -d ${D}${includedir}/tensorflow/c/eager/
 	install -d ${D}${libdir}/
 	install -m 0755 ${S}/include/tensorflow/c/c_api* ${D}${includedir}/tensorflow/c/
+	install -m 0755 ${S}/include/tensorflow/c/tf_attrtype.h ${D}${includedir}/tensorflow/c/
 	install -m 0755 ${S}/include/tensorflow/c/eager/c_api* ${D}${includedir}/tensorflow/c/eager/
 	install -m 0755 ${S}/lib/libtensorflow* ${D}${libdir}/
 }
@@ -26,6 +27,7 @@ FILES_${PN} += "${libdir}/"
 FILES_${PN} += "/usr/lib/libtensorflow_framework.so"
 FILES_${PN} += "/usr/lib/libtensorflow.so"
 FILES_${PN} += "/usr/include/tensorflow/c/c_api.h"
+FILES_${PN} += "/usr/include/tensorflow/c/tf_attrtype.h"
 FILES_${PN} += "/usr/include/tensorflow/c/c_api_experimental.h"
 FILES_${PN} += "/usr/include/tensorflow/c/eager/c_api.h"
 
