@@ -1,6 +1,6 @@
-DESCRIPTION = "USB UVC Library 1.3.0"
+DESCRIPTION = "USB UVC Library (https://github.com/wlhe/uvc-gadget)"
 SECTION = "examples"
-LICENSE = "CLOSED"
+LICENSE = "LGPLv2"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base "
 
