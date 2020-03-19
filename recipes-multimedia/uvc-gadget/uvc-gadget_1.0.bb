@@ -2,8 +2,6 @@ DESCRIPTION = "USB UVC Library (https://github.com/wlhe/uvc-gadget)"
 SECTION = "examples"
 LICENSE = "LGPLv2"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base "
-
 SRC_URI = "file://uvc-gadget.tar.gz"
 
 TARGET_CC_ARCH += "${LDFLAGS}"
