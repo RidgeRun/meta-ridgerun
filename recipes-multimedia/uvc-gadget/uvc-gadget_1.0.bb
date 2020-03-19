@@ -6,8 +6,6 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base "
 
 SRC_URI = "file://uvc-gadget.tar.gz"
 
-EXTRA_OECONF = "CFLAGS="-I${STAGING_KERNEL_DIR}/drivers/usb/gadget/function -I${STAGING_KERNEL_DIR}/include/uapi -I${STAGING_KERNEL_DIR}/include" LDFLAGS=-lpthread"
-
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 S = "${WORKDIR}/uvc-gadget"
