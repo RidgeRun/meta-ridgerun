@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstreamer1.0-rtsp-server libguvc"
 
-SRCBRANCH ?= "yocto-sumo"
+SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
 SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=gst-uvc-sink-1.0"
 
