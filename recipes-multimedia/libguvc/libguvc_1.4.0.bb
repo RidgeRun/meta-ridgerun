@@ -5,6 +5,7 @@ LICENSE = "CLOSED"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
 
 SRCBRANCH ?= "master"
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=libguvc"
 
 
