@@ -9,15 +9,22 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstreamer1.0-rtsp-server json-glib libdaemon jansson"
 
 SRCBRANCH ?= "master"
-SRCREV = "a6621a5778b234651aa2adbbe304d906a3fa64d1"
+SRCREV = "d27418bedd2d8356f703ee3039ca8ac1f0762f67"
 SRC_URI = "git://github.com/RidgeRun/gstd-1.x.git;protocol=https;branch=${SRCBRANCH} \
-	   file://0001-gstd-yocto-compatibility.patch"
+           file://0001-gstd-yocto-compatibility.patch \
+           "
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "/run/gstd"
+FILES_${PN} += "/run \
+                /var/log \
+                "
 
 inherit autotools pkgconfig gettext
+
+EXTRA_OECONF = "--with-gstd-runstatedir=/run \
+                --with-gstd-logstatedir=/var/log/ \
+                "
 
 do_configure() {
         ${S}/autogen.sh
@@ -26,6 +33,7 @@ do_configure() {
 
 do_install() {
         autotools_do_install
-        install -d ${D}/run/gstd
+        install -d ${D}/run
+        install -d ${D}/var/log/
         rm -rf ${D}/var/run
 }

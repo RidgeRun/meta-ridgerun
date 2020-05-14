@@ -75,6 +75,16 @@ index 87e24dd..000e14f 100644
  gstd_LDADD = libgstd-core.la
  
  gstdincludedir = $(includedir)/gstd
+diff --git a/libgstc/Makefile.am b/libgstc/Makefile.am
+index 990d891..d410867 100644
+--- a/libgstc/Makefile.am
++++ b/libgstc/Makefile.am
+@@ -19,5 +19,3 @@ noinst_HEADERS = \
+ 	libgstc_json.h		\
+ 	libgstc_thread.h
+ 
+-install-am:
+-	@sudo -H pip3 install .
 -- 
 2.7.4
 
