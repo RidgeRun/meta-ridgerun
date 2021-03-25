@@ -3,7 +3,9 @@ DESCRIPTION = "GstOpenCL plugin"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad imx-gst1.0-plugin"
+LIC_FILES_CHKSUM = "file://COPYING;md5=46819161aba98ab8c502e93a15713e58"
+
+DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad imx-gpu-viv imx-gst1.0-plugin "
 
 #######
 #Note repo is private. SSH keys are needed to do_fetch
