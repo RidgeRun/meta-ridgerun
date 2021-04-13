@@ -135,3 +135,18 @@ bitbake gst-interpipe
 - For more information:
     https://developer.ridgerun.com/wiki/index.php?title=GstInterpipe
 
+## Building Gst-opencl (Private)
+
+GstOpenCL is a GStreamer framework enabling easy OpenCL algorithm integration into GStreamer pipelines. The framework consists of a series of base classes and utils abstracting the complexity of both OpenCL and GStreamer.
+
+- To build the recipe:
+```
+bitbake gst-opencl
+```
+- For more information:
+    https://www.ridgerun.com/gstopencl
+
+### iMX6 build
+
+If you are building for an iMX6 board, make sure you have the **imx-gst1.0-plugin** and **gstreamer1.0-plugins-imx** packages.
+The recipies should be in the [meta-freescale](https://git.yoctoproject.org/cgit/cgit.cgi/meta-freescale/tree/recipes-multimedia/gstreamer?h=master) layer.
