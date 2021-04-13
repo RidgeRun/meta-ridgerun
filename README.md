@@ -149,3 +149,4 @@ bitbake gst-opencl
 ### iMX6 build
 
 If you are building for an iMX6 board, make sure you have the **imx-gst1.0-plugin** and **gstreamer1.0-plugins-imx** packages.
+The recipies should be in the [meta-freescale](https://git.yoctoproject.org/cgit/cgit.cgi/meta-freescale/tree/recipes-multimedia/gstreamer?h=master) layer.
