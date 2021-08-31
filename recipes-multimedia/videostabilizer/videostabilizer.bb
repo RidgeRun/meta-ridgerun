@@ -1,4 +1,4 @@
-SUMMARY = "video stabilizer"
+SUMMARY = "Video Stabilizer for Embedded Systems"
 DESCRIPTION = "RR Video Stabilizer is a project from RidgeRun Engineering that provides real-time camera stabilization for embedded systems with constrained resources"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=Video_Stabilization_for_Embedded_Systems"
 SECTION = "multimedia"
