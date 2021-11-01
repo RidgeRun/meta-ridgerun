@@ -1,0 +1,29 @@
+From 3cfff5be844a85284858c96a3d747fa46eb14cd2 Mon Sep 17 00:00:00 2001
+From: Dimitar Maznekov <d.maznekov@optixco.com>
+Date: Fri, 29 Oct 2021 14:59:48 +0300
+Subject: [PATCH 3/3] srcdir in autogen.sh
+
+---
+ autogen.sh | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/autogen.sh b/autogen.sh
+index c9e8d0c..411530c 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -21,7 +21,11 @@
+ # ACLOCAL, AUTOPOINT and/or LIBTOOLIZE to the right versions, or leave them
+ # unset and get the defaults
+ 
+-gtkdocize || exit 1
++test -n "$srcdir" || srcdir=`dirname "$0"`
++test -n "$srcdir" || srcdir=
++
++olddir=`pwd`
++cd "$srcdir"
+ 
+ autoreconf --verbose --force --install || {
+  echo 'autogen.sh failed';
+-- 
+2.30.2
+
