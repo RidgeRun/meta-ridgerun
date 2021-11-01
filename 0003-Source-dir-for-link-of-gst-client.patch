@@ -1,0 +1,28 @@
+From fafb3b0eaa96c76abe1c340fd5dcaab4b9eb22dd Mon Sep 17 00:00:00 2001
+From: Dimitar Maznekov <d.maznekov@optixco.com>
+Date: Fri, 29 Oct 2021 14:53:49 +0300
+Subject: [PATCH 1/3] Source dir for link of gst-client
+
+---
+ gst_client/Makefile.am | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gst_client/Makefile.am b/gst_client/Makefile.am
+index 69bd5b8..258630a 100644
+--- a/gst_client/Makefile.am
++++ b/gst_client/Makefile.am
+@@ -6,9 +6,9 @@ gst_client_@GSTD_API_VERSION@_LDFLAGS = $(GST_LIBS) $(GIO_LIBS) $(GIO_UNIX_LIBS)
+ 
+ install-exec-hook:
+ 	$(RM) $(DESTDIR)$(bindir)/gstd-client $(DESTDIR)$(bindir)/gst-client
+-	$(LN_S) $(DESTDIR)$(bindir)/gst-client-@GSTD_API_VERSION@ \
++	$(LN_S) $(bindir)/gst-client-@GSTD_API_VERSION@ \
+            $(DESTDIR)$(bindir)/gstd-client
+-	$(LN_S) $(DESTDIR)$(bindir)/gst-client-@GSTD_API_VERSION@ \
++	$(LN_S) $(bindir)/gst-client-@GSTD_API_VERSION@ \
+            $(DESTDIR)$(bindir)/gst-client
+ 
+ uninstall-hook:
+-- 
+2.30.2
+
