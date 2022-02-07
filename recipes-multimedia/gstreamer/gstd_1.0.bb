@@ -11,6 +11,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstre
 SRCBRANCH ?= "develop"
 SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/RidgeRun/gstd-1.x.git;protocol=https;branch=${SRCBRANCH} \
+           file://0001-Remove-libgstc-python-directory-from-meson-build.patch \
            "
 
 S = "${WORKDIR}/git"
