@@ -2,6 +2,71 @@
 
 Ridgerun yocto layer containing RidgeRun commonly used packages
 
+## Using meta-ridgerun setup script
+
+meta-ridgerun's setup script is designed to take into account only the packages
+that you will actually need in your build. This will prevent that errors from
+packages that you're not using interfere with your building process.
+
+Please run
+this script **before** adding the meta-ridgerun layer to your Yocto environment.
+
+The script usage is pretty simple, just run:
+
+```
+./setup.sh
+```
+
+And you will be asked if you want each of the recipes included in this layer.
+Press **y** or **n** and then **Enter** to move to the next recipe. At the end
+of the script you will see some instructions to modify some files in case some
+proprietary packages were selected.
+
+For example, if you only marked gstd and gst-rtsp-sink, you will see an output
+like this:
+
+```
+Packages that will be added:
+*gstd
+*gst-rtsp-sink
+Confirm selection (y/n): y
+The packages have been sucessfully added to conf/layer.conf and recipes-images/images/core-image-ridgerun.bb
+WARNING: It is assumed that the package name is the same as the recipe, so please modify recipes-images/images/core-image-ridgerun.bb if they differ
+
+WARNING: Please add a valid SRC_URI for the following recipe(s) before running bitbake:
+*recipes-multimedia/gstreamer/gst-rtsp-sink_0.6.bb
+You may now add meta-ridgerun to your bblayers.conf
+```
+
+In this case gst-rtsp-sink is proprietary, therefore the script tells you to 
+modify the SRC_URI **before** adding the meta-ridgerun layer to your Yocto 
+environment.
+
+After the script has run you will see that core-image-ridgerun.bb and layer.conf
+were modified like this:
+
+* **recipes-images/images/core-image-ridgerun.bb**
+```
+IMAGE_INSTALL += "\
+  gstd \
+  gst-rtsp-sink "
+```
+
+* **conf/layer.conf**
+
+```
+BBFILES := "${BBFILES} \
+  ${LAYERDIR}/recipes-images/images/core-image-ridgerun.bb \
+  ${LAYERDIR}/recipes-multimedia/gstreamer/gstd_1.0.bb \
+  ${LAYERDIR}/recipes-multimedia/gstreamer/gst-rtsp-sink_0.6.bb " 
+```
+
+In this case **core-image-ridgerun** is an example image we provide, however you
+can add the packages to your custom image in the same way of the example.
+
+Once you have set up all the SRC_URI variables for the packages (if required) 
+you can proceed to the next section and add meta-ridgerun to your Yocto build.
+
 ## Adding meta-ridgerun to your Yocto build
 
 - First you need to copy meta-ridgerun in your **sources** directory
