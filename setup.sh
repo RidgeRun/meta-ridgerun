@@ -23,6 +23,11 @@ for recipe in $recipes; do
     done
 done
 
+if [ "$conf_recipes" = "" ]; then
+    echo "No packages were selected. Exiting..."
+    exit 0
+fi
+
 # Print summary for confirmation
 echo -e "Packages that will be added:\n`echo $conf_packages | sed -e 's,PACKAGE,*,g' -e 's, ,\n,g'`"
 while true; do
