@@ -1,10 +1,10 @@
-!/bin/bash
+#!/bin/bash
 
 echo "Welcome to meta-ridgerun setup script!"
 echo "Please mark with yes (y) the recipes you want in your image"
 
 # Get the name of all available recipes, except the ones from images
-recipes=`find . -name *.bb | sed -e 's,\.\/,,' -e '/recipes-images/d'`
+recipes=`find . -name *.bb* | sed -e 's,\.\/,,' -e '/recipes-images/d'`
 conf_recipes=""
 conf_packages=""
 prop_recipes=()
@@ -13,7 +13,7 @@ prop_recipes=()
 for recipe in $recipes; do
     while true; do
         recipe_name=`basename $recipe`
-        package_name=`echo $recipe_name | sed -e 's,_[0-9]\+.[0-9]\+.*[0-9]*.bb,,'`
+        package_name=`echo $recipe_name | sed -e 's,_[0-9]\+.[0-9]\+.*[0-9]*\.bb.*,,'`
         read -p "Do you wish to add the $recipe_name recipe (y/n): " answer
         case $answer in
             [Yy]* ) conf_recipes+="\${LAYERDIR}/$recipe "; conf_packages+="PACKAGE$package_name "; break;;
