@@ -46,6 +46,7 @@ conf_recipes=(`echo $conf_recipes | sed -e 's,\${LAYERDIR}\/,,g'`)
 conf_packages=(`echo $conf_packages | sed -e 's,PACKAGE,,g'`)
 
 echo "The packages have been sucessfully added to conf/layer.conf and recipes-images/images/core-image-ridgerun.bb"
+echo "WARNING: It is assumed that the package name is the same as the recipe, so please modify recipes-images/images/core-image-ridgerun.bb if they differ"
 
 # Check if the selected packages are among the proprietary ones
 PROPRIETARY="pcie-fpga-v4l2 gst-emboverlay gst-isp gst-motiondetect gst-opencl gst-pre-record gst-qt-overlay gst-rtsp-sink gst-uvc-sink gst-webrtc libguvc videostabilizer"
