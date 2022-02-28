@@ -146,6 +146,24 @@ bitbake gst-opencl
 - For more information:
     https://www.ridgerun.com/gstopencl
 
+## Building Gst-SEI (Private)
+
+- GstSEI is a GStreamer element to insert and extract metadata on NAL Units
+    https://shop.ridgerun.com/products/gstseimetadata
+
+- Once you have access to the repository, please open gst-sei_0.2.2.bb in **$YOCTO_DIRECTORY/sources/meta-ridgerun/recipes-multimedia/gstreamer/**
+
+- Modify SRC_URI with the correct gst-sei URL by changing **<Customer-Directory>** with your own.
+
+- Make sure you have added your ssh key to your GitLab account and the GitLab key is added to your list of known hosts on the PC.
+
+- Finally build recipe
+```
+bitbake gst-sei
+```
+- For more information:
+    https://developer.ridgerun.com/wiki/index.php?title=GstSEIMetadata
+
 ### iMX6 build
 
 If you are building for an iMX6 board, make sure you have the **imx-gst1.0-plugin** and **gstreamer1.0-plugins-imx** packages.
