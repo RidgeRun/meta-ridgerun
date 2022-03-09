@@ -1,0 +1,16 @@
+From 42a497fe79c8719384cdc2c164b3e9c7f189ec43 Mon Sep 17 00:00:00 2001
+From: Jasson Rodriguez <jasson.rodriguez@ridgerun.com>
+Date: Mon, 7 Feb 2022 13:21:12 -0600
+Subject: [PATCH] Remove libgstc python directory from meson build
+
+---
+ libgstc/meson.build | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/libgstc/meson.build b/libgstc/meson.build
+index e94dcd1..76d1974 100644
+--- a/libgstc/meson.build
++++ b/libgstc/meson.build
+@@ -1,2 +1 @@
+ subdir('c')
+-subdir('python')
