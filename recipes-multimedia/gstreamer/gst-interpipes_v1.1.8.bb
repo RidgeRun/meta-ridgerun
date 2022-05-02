@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=3191ae9476980e87e3494d2d8ebe4584"
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
 
 SRCBRANCH ?= "master"
-SRCREV = "814982ecd735e42ff2d14ce7c43039c259ec928b"
+SRCREV = "${PV}"
 SRC_URI = "git://github.com/RidgeRun/gst-interpipe.git;protocol=https;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
@@ -19,7 +19,6 @@ FILES_${PN} += "${libdir}/gstreamer-1.0/libgstinterpipe.so "
 inherit autotools pkgconfig gettext
 
 do_configure() {
-${S}/autogen.sh --noconfigure
-
-oe_runconf
+    ${S}/autogen.sh --noconfigure
+    oe_runconf
 }
