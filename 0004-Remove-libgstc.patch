@@ -1,0 +1,117 @@
+From ff60ee1a220ab281752eff00a36a92be366a2a42 Mon Sep 17 00:00:00 2001
+From: Dimitar Maznekov <d.maznekov@optixco.com>
+Date: Mon, 1 Nov 2021 10:19:22 +0200
+Subject: [PATCH] Remove libgstc
+
+---
+ Makefile.am          | 1 -
+ configure.ac         | 8 --------
+ examples/Makefile.am | 2 +-
+ examples/meson.build | 2 +-
+ meson.build          | 7 +++----
+ tests/Makefile.am    | 3 +--
+ tests/meson.build    | 1 -
+ 7 files changed, 6 insertions(+), 18 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 0206d81..de26bdf 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,7 +2,6 @@ ACLOCAL_AMFLAGS=-I m4 -I .
+ 
+ SUBDIRS=gstd		\
+ 	gst_client 	\
+-	libgstc		\
+ 	tests		\
+ 	examples	\
+ 	docs      	\
+diff --git a/configure.ac b/configure.ac
+index 20af0ea..99c8a35 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -293,17 +293,9 @@ AC_CONFIG_FILES([
+ Makefile
+ gstd/Makefile
+ gst_client/Makefile
+-libgstc/Makefile
+-libgstc/c/Makefile
+-libgstc/javascript/Makefile
+-libgstc/python/Makefile
+ examples/Makefile
+-examples/libgstc/Makefile
+ tests/Makefile
+ tests/gstd/Makefile
+-tests/libgstc/Makefile
+-tests/libgstc/c/Makefile
+-tests/libgstc/python/Makefile
+ docs/Makefile
+ docs/reference/Makefile
+ docs/reference/gstd/Makefile
+diff --git a/examples/Makefile.am b/examples/Makefile.am
+index e409b0f..ea0776a 100644
+--- a/examples/Makefile.am
++++ b/examples/Makefile.am
+@@ -1 +1 @@
+-SUBDIRS=libgstc
++#SUBDIRS=libgstc
+diff --git a/examples/meson.build b/examples/meson.build
+index d19d7e3..75d51ba 100644
+--- a/examples/meson.build
++++ b/examples/meson.build
+@@ -1,3 +1,3 @@
+ if not get_option('enable-examples').disabled()
+-  subdir('libgstc')
++#  subdir('libgstc')
+ endif
+diff --git a/meson.build b/meson.build
+index a0af2e2..ddf1908 100644
+--- a/meson.build
++++ b/meson.build
+@@ -54,15 +54,15 @@ endif
+ # Define gst Daemon dependencies
+ gstd_deps = [gst_base_dep, gio_unix_dep, json_glib_dep, libd_dep, jansson_dep, libsoup_dep]
+ # Define gst client library dependencies
+-libgstc_deps = [gst_base_dep, json_glib_dep, jansson_dep, thread_dep]
++#libgstc_deps = [gst_base_dep, json_glib_dep, jansson_dep, thread_dep]
+ # Define gst client application dependencies
+ gst_client_deps = [readline_dep, json_glib_dep, gio_unix_dep]
+ # Define test dependencies
+-test_libgstc_deps=[gst_base_dep, json_glib_dep, jansson_dep, thread_dep, gst_check_dep]
++#test_libgstc_deps=[gst_base_dep, json_glib_dep, jansson_dep, thread_dep, gst_check_dep]
+ test_gstd_deps=[gst_base_dep, gio_unix_dep, json_glib_dep, libd_dep, jansson_dep, gst_check_dep]
+ 
+ # Define header directories
+-lib_gstc_inc_dir = include_directories('libgstc/c')
++#lib_gstc_inc_dir = include_directories('libgstc/c')
+ gstd_inc_dir = include_directories('gstd')
+ configinc = include_directories('.')
+ 
+@@ -241,7 +241,6 @@ configure_file(output : 'config.h', configuration : cdata)
+ 
+ # Enter to each subdirectory and execute the meson.build
+ subdir('gstd')
+-subdir('libgstc')
+ subdir('gst_client')
+ subdir('tests')
+ subdir('examples')
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index 1442e78..ff62c72 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -1,3 +1,2 @@
+ SUBDIRS = 	\
+-	gstd	\
+-	libgstc
++	gstd
+diff --git a/tests/meson.build b/tests/meson.build
+index bd6ba1c..20ebaf3 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -1,4 +1,3 @@
+ if not get_option('enable-tests').disabled()
+   subdir('gstd')
+-  subdir('libgstc')
+ endif
+-- 
+2.30.2
+
