@@ -6,17 +6,16 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstre
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=gst-uvc-sink-1.0"
+SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=gst-uvc-sink-1.0;lfs=0"
 
 
 S = "${WORKDIR}/gst-uvc-sink-${PV}"
 
-FILES_${PN} += "${libdir}/gstreamer-1.0/libgstuvcsink.so"
-FILES_${PN} += "${bindir}/{uvc_uvcsink_yuyv_app,uvc_uvcsink_h264_app,uvc_uvcsink_mjpeg_app}"
+FILES:${PN} += "${libdir}/gstreamer-1.0/libgstuvcsink.so "
 
 inherit autotools pkgconfig gettext
 
 do_configure() {
-${S}/autogen.sh
-oe_runconf
+    ${S}/autogen.sh
+    oe_runconf
 }

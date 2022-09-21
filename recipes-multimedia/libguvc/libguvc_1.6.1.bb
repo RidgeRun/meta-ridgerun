@@ -6,10 +6,11 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=libguvc"
+SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git;protocol=ssh;branch=${SRCBRANCH};subpath=libguvc;lfs=0"
 
 
-EXTRA_OECONF = "CFLAGS="-I${STAGING_KERNEL_DIR}/drivers/usb/gadget/function -I${STAGING_KERNEL_DIR}/include/uapi -I${STAGING_KERNEL_DIR}/include" LDFLAGS=-lpthread"
+TARGET_CFLAGS += " -I${STAGING_KERNEL_DIR}/drivers/usb/gadget/function -I${STAGING_KERNEL_DIR}/include/uapi -I${STAGING_KERNEL_DIR}/include "
+TARGET_LDFLAGS += " -lpthread "
 
 INSANE_SKIP_${PN} = "ldflags"
 INSANE_SKIP_${PN}-dev = "ldflags"
@@ -21,6 +22,6 @@ S = "${WORKDIR}/libguvc"
 B = "${WORKDIR}/libguvc"
 
 do_configure() {
-./autogen.sh --noconfigure
-oe_runconf
+    ./autogen.sh --noconfigure
+    oe_runconf
 }
