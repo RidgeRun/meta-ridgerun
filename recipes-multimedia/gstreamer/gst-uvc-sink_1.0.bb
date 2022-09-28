@@ -11,7 +11,6 @@ SRC_URI = "git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/libguvc.git
 
 S = "${WORKDIR}/gst-uvc-sink-${PV}"
 
-FILES:${PN} += "${bindir}/{uvc_uvcsink_yuyv_app,uvc_uvcsink_h264_app,uvc_uvcsink_mjpeg_app}"
 FILES:${PN} += "${libdir}/gstreamer-1.0/libgstuvcsink.so "
 
 inherit autotools pkgconfig gettext
