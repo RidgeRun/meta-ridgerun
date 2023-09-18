@@ -12,15 +12,15 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad gstre
 #Please add the SRCREV and CUSTOMER according to the information
 #provided by Ridgerun with your order.
 #######
+
 SRCBRANCH ?= "master"
-SRCREV = "4605d1d18976dd04f0f4eebfe374f672c39f98a8"
+SRCREV = "0893016e217ab27a4703a89b9a0355cee84809b7"
 CUSTOMER = ""
-SRC_URI = " git://git@gitlab.ridgerun.com/customer/<ID>/gst-opencl.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = " git://git@gitlab.ridgerun.com/${CUSTOMER}/gst-opencl.git;protocol=ssh;branch=${SRCBRANCH}"
 
-
-#S = "${WORKDIR}/gst-opencl-${PV}"
 S = "${WORKDIR}/git"
 
+#EXTRA_OECONF += " --enable-eval "
 
 inherit autotools pkgconfig gettext
 
@@ -30,13 +30,8 @@ do_configure() {
 }
 
 #To avoid error related to package contains symlink .so
-INSANE_SKIP_${PN} = "dev-so"
+INSANE_SKIP:${PN} = "dev-so dev-elf"
 
-FILES:${PN} += "${libdir}/libgstopencl.so.0.0.0 ${libdir}/gstreamer-1.0/libgstopencl.so ${libdir}/libgstopencl.so.0 ${libdir}/libgstopencl.so "
+FILES:${PN} += "${libdir}/libgstopencl.so.0.0.0 ${libdir}/gstreamer-1.0/libgstopencl.so ${libdir}/libgstopencl.so.0 ${libdir}/libgstopencl.so"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
-
-#do_install_append() {
-#To avoid error related to installed but not shipped libgstopencl.a file
-#  rm -f ${D}/usr/lib/gstreamer-1.0/libgstopencl.a
-#}
