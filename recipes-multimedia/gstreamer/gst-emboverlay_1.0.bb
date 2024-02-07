@@ -10,11 +10,11 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base cairo"
 
 SRCBRANCH ?= "master"
 SRCREV = "542f26d60e3b0b0e7ef9d4438096e57773a2dd34"
-SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-emboverlay.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = " git://git@gitlab.ridgerun.com/RidgeRun/orders/<Customer-Directory>/gst-emboverlay.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git/src"
 
-FILES_${PN} += "\
+FILES:${PN} += "\
         ${libdir}/gstreamer-1.0/libgstemboverlay.so \
         ${libdir}/gstreamer-1.0/libgstemboverlay.la \
 "
