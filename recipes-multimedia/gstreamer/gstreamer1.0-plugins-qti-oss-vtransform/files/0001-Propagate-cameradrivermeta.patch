@@ -1,0 +1,66 @@
+From f32b6c42ddcbffe347b983dc10a4494ec183c3a5 Mon Sep 17 00:00:00 2001
+From: Jennifer Caballero <jennifer.caballero@ridgerun.com>
+Date: Mon, 29 Sep 2025 10:22:29 -0600
+Subject: [PATCH] Propagate cameradrivermeta
+
+---
+ CMakeLists.txt   |  1 +
+ videotransform.c | 16 ++++++++++++++++
+ 2 files changed, 17 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dfb5485..c93dc97 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,6 +52,7 @@ target_link_libraries(${GST_QTI_VIDEO_TRANSFORM} PRIVATE
+   ${GST_ALLOC_LIBRARIES}
+   ${GST_VIDEO_LIBRARIES}
+   gstqtivideobase
++  gstcameradrivermeta
+ )
+ 
+ install(
+diff --git a/videotransform.c b/videotransform.c
+index 97ab25b..f3cd705 100644
+--- a/videotransform.c
++++ b/videotransform.c
+@@ -69,6 +69,7 @@
+ 
+ #include <gst/video/gstimagepool.h>
+ #include <gst/video/gstvideooriginmeta.h>
++#include <gst/rvs/gstcameradrivermeta.h>
+ 
+ #define GST_CAT_DEFAULT video_transform_debug
+ GST_DEBUG_CATEGORY_STATIC (video_transform_debug);
+@@ -1761,6 +1762,8 @@ gst_video_transform_transform (GstBaseTransform * base, GstBuffer * inbuffer,
+   gpointer request_id = NULL;
+   GstClockTime ts_begin = GST_CLOCK_TIME_NONE, ts_end = GST_CLOCK_TIME_NONE;
+   GstClockTimeDiff tsdelta = GST_CLOCK_STIME_NONE;
++  GstMeta *meta = NULL;
++  GstCameraDriverMeta *inmeta, *outmeta = NULL;
+ 
+   // GAP buffer, nothing to do. Propagate output buffer downstream.
+   if (gst_buffer_get_size (outbuffer) == 0 &&
+@@ -1780,6 +1783,19 @@ gst_video_transform_transform (GstBaseTransform * base, GstBuffer * inbuffer,
+     return GST_FLOW_OK;
+   }
+ 
++  meta = gst_buffer_get_meta (inbuffer, GST_CAMERA_DRIVER_META_API_TYPE);
++  if (!meta) {
++    GST_WARNING_OBJECT(vtrans, "Failed to get input metadata");
++  } else {
++    inmeta = (GstCameraDriverMeta *) meta;
++    outmeta = gst_buffer_add_camera_driver_meta (outbuffer);
++    if (!outmeta) {
++      GST_WARNING_OBJECT(vtrans, "Failed to add output metadata");
++    } else {
++      memcpy(outmeta, inmeta, sizeof(GstCameraDriverMeta));
++    }
++  }
++
+   ts_begin = gst_util_get_timestamp ();
+ 
+   {
+-- 
+2.50.1
+
