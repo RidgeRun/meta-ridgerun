@@ -1,0 +1,13 @@
+diff --git a/gst/stitcher/gstcudastitcher.cpp b/gst/stitcher/gstcudastitcher.cpp
+index c9191eb..db6c43a 100644
+--- a/gst/stitcher/gstcudastitcher.cpp
++++ b/gst/stitcher/gstcudastitcher.cpp
+@@ -29,7 +29,7 @@
+ #include <gst/base/gstaggregator.h>
+ #include <gst/gst.h>
+ #include <gst/video/video.h>
+-#include <jsoncpp/json/json.h>
++#include <json/json.h>
+ #include <sys/cuda/gstcuda.h>
+ 
+ #include <sys/cuda/muxalgorithm.hpp>
