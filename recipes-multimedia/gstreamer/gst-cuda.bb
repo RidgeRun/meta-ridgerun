@@ -8,7 +8,8 @@ LICENSE = "CLOSED"
 SRCBRANCH ?= "main"
 SRCREV = "${AUTOREV}"
 
-#TODO:Change the SRC_URI to point the actual repository of gst-cuda
+# Note: This SRC_URI points to RidgeRun's internal repository. Should
+# replace it with the repository URI provided to them upon purchase of the plugin.
 SRC_URI = " \
     gitsm://gst-cuda-repository;protocol=ssh;branch=${SRCBRANCH} \
     file://0001-simplify-CUDA-library-detection-and-NVCC-flag-setup.patch \
@@ -29,19 +30,12 @@ DEPENDS = " \
 "
 
 PACKAGECONFIG ??= ""
-PACKAGECONFIG[gtk-doc] = "--enable-gtk-doc,--disable-gtk-doc,gtk-doc-native"
-PACKAGECONFIG[nvmm]    = "--enable-nvmm,--disable-nvmm,"
+PACKAGECONFIG[gtk-doc]  = "--enable-gtk-doc,--disable-gtk-doc,gtk-doc-native"
+PACKAGECONFIG[nvmm]     = "--enable-nvmm \
+                           --with-nvidia-multimedia-api-prefix=${STAGING_INCDIR}/ \
+                           --with-nvidia-prefix=${STAGING_LIBDIR}/ \
+                           --with-nvidia-egl-prefix=${STAGING_LIBDIR}/, \
+                           --disable-nvmm,"
 PACKAGECONFIG[examples] = "--enable-examples,--disable-examples,"
-
-EXTRA_OECONF += " \
-    ${@bb.utils.contains('PACKAGECONFIG', 'gtk-doc', '', '--disable-gtk-doc', d)} \
-    ${@bb.utils.contains('PACKAGECONFIG', 'nvmm', '', '--disable-nvmm', d)} \
-"
-
-EXTRA_OECONF += "${@bb.utils.contains('PACKAGECONFIG', 'nvmm', \
-    '--with-nvidia-multimedia-api-prefix=${STAGING_INCDIR}/ \
-     --with-nvidia-prefix=${STAGING_LIBDIR}/ \
-     --with-nvidia-egl-prefix=${STAGING_LIBDIR}/', \
-    '', d)}"
 
 FILES:${PN} += "${libdir}/gstreamer-1.0/"

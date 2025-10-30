@@ -8,7 +8,8 @@ SRCBRANCH ?= "main"
 SRCREV = "${AUTOREV}"
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-#TODO:Change the SRC_URI to point the actual repository of gst-stitcher
+# Note: This SRC_URI points to RidgeRun's internal repository. Should
+# replace it with the repository URI provided to them upon purchase of the plugin.
 SRC_URI = " \
     git://gst-cuda-stitcher-repository;protocol=ssh;branch=${SRCBRANCH} \
     file://gstcudastitcher.patch \
