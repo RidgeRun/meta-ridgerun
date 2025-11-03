@@ -1,0 +1,60 @@
+From dae373eabe501270efcb1b13735899b61ddbd002 Mon Sep 17 00:00:00 2001
+From: omendez <oscar.mendez@ridgerun.com>
+Date: Mon, 13 Oct 2025 08:45:59 -0600
+Subject: [PATCH] simplify CUDA library detection and NVCC flag setup
+
+---
+ m4/gst-cuda.m4 | 36 +++++++++++++++++-------------------
+ 1 file changed, 17 insertions(+), 19 deletions(-)
+
+diff --git a/m4/gst-cuda.m4 b/m4/gst-cuda.m4
+index ef33fc1..5966511 100644
+--- a/m4/gst-cuda.m4
++++ b/m4/gst-cuda.m4
+@@ -34,26 +34,24 @@ AC_DEFUN([AG_GST_CHECK_NVCC],
+     AC_MSG_ERROR([No nvcc compiler found, specify CUDA location using --with-cuda-prefix])
+   fi
+ 
+-  AC_CHECK_FILE([$with_cuda_prefix/lib64],[lib64_found=yes],[lib64_found=no])
+-  if test "x$lib64_found" = xno ; then
+-    AC_CHECK_FILE([$with_cuda_prefix/lib],[lib32_found=yes],[lib32_found=no])
+-    if test "x$lib32_found" = xno ; then
+-      AC_MSG_ERROR([Couldn't find cuda lib directory])
+-    fi
+-  else
+-    AC_CHECK_SIZEOF([long])
+-    if test "x$ac_cv_sizeof_long" = "x8" ; then
+-      NVCC_CFLAGS+=" -m64"
+-    elif test "x$ac_cv_sizeof_long" = "x4" ; then
+-      AC_CHECK_FILE([$with_cuda_prefix/lib32],[lib32_found=yes],[lib32_found=no])
+-      if test "x$lib32_found" = xyes ; then
+-        NVCC_CFLAGS+=" -m32"
+-      else
+-        AC_MSG_ERROR([Couldn't find cuda lib directory])
+-      fi
+-    else
+-      AC_MSG_ERROR([Could not determine size of long variable type])
++  cuda_libdir_found=no
++  for cuda_lib_candidate in lib64 lib lib32; do
++    if test -d "$with_cuda_prefix/$cuda_lib_candidate"; then
++      cuda_libdir_found=yes
++      case $cuda_lib_candidate in
++        lib32)
++          NVCC_CFLAGS="$NVCC_CFLAGS -m32"
++          ;;
++        *)
++          NVCC_CFLAGS="$NVCC_CFLAGS -m64"
++          ;;
++      esac
++      break
+     fi
++  done
++
++  if test "x$cuda_libdir_found" = xno ; then
++    AC_MSG_ERROR([Couldn't find cuda lib directory])
+   fi
+ 
+   NVCC_CFLAGS+=" -O3 -arch=sm_50 -Xcompiler -Wall -Xcompiler -Wextra --ptxas-options=-v"
+-- 
+2.34.1
+
