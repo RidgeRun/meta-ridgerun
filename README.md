@@ -168,3 +168,7 @@ bitbake gst-sei
 
 If you are building for an iMX6 board, make sure you have the **imx-gst1.0-plugin** and **gstreamer1.0-plugins-imx** packages.
 The recipies should be in the [meta-freescale](https://git.yoctoproject.org/cgit/cgit.cgi/meta-freescale/tree/recipes-multimedia/gstreamer?h=master) layer.
+
+### QCOM RB5 build
+The following appends were created to fix RB5 QRB5165.LU2.0_20250723.2230_debug build: recipes-toolchain/ubuntu/python3-ubuntu_%.bbappend, recipes-core/expat/expat_%.bbappend.
+The following appends were created to support RidgeRun Video Stabilizer on RB5: recipes-multimedia/gstreamer/gstreamer1.0-plugins-qti-oss-qmmfsrc.bbappend, recipes-multimedia/gstreamer/gstreamer1.0-plugins-qti-oss-vtransform/gstreamer1.0-plugins-qti-oss-vtransform.bbappend. Both appends depend on recipes-multimedia/gstreamer/gstcameradrivermeta/gstcameradrivermeta_1.0.bb.
