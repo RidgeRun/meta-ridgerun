@@ -1,6 +1,7 @@
 SUMMARY = "GStreamer Driver Meta"
 DESCRIPTION = "Driver Meta for GStreamer used in RidgeRun's Video Stabilizer"
-LICENSE = "CLOSED"
+LICENSE = "LGPL-2.0-or-later"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
 
 BRANCH ?= "master"
