@@ -1,0 +1,5 @@
+BRANCH ?= "LU.UM.3.3.1-25900-QRB5165"
+SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstqtiqmmfsrc.git;protocol=ssh;user=git;branch=${BRANCH}"
+SRCREV = "${AUTOREV}"
+S = "${WORKDIR}/git"
+DEPENDS += "gstcameradrivermeta"
