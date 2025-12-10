@@ -1,4 +1,4 @@
-SUMMARY = "Gstreamer Interpipe 1.1.8"
+SUMMARY = "GStreamer Interpipe"
 DESCRIPTION = "GStreamer plug-in that allows communication between two independent pipelines"
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=GstInterpipe"
 SECTION = "multimedia"
@@ -16,7 +16,7 @@ DEPENDS = " \
 
 # Source code configuration
 SRCBRANCH ?= "master"
-SRCREV = "21efccf81bf01f8f2131f55b33ecbde3699744b5"
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/RidgeRun/gst-interpipe.git;protocol=https;branch=${SRCBRANCH}"
 S = "${WORKDIR}/git"
 
