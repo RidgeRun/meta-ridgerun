@@ -10,8 +10,6 @@ DEPENDS = " \
     gstreamer1.0 \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
-    gtk-doc-native \
-    pkgconfig-native \
     "
 
 # Source code configuration
@@ -23,8 +21,9 @@ S = "${WORKDIR}/git"
 # Package file definitions
 FILES:${PN} += "${libdir}/gstreamer-1.0/libgstinterpipe.so"
 
-# Meson build options
-EXTRA_OEMESON = "-Denable-gtk-doc=false"
+# Package configuration options
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[gtk-doc] = "-Denable-gtk-doc=true,-Denable-gtk-doc=false,gtk-doc-native"
 
 # Inherit necessary classes
-inherit meson
+inherit meson pkgconfig
