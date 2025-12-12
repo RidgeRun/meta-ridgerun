@@ -12,7 +12,7 @@ SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
 # Note: This SRC_URI points to RidgeRun's internal repository. Should
 # replace it with the repository URI provided to them upon purchase of the plugin.
-SRC_URI = " git://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-emboverlay.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-emboverlay.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git/src"
 
