@@ -12,9 +12,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-# Note: This SRC_URI points to RidgeRun's internal repository. Should
-# replace it with the repository URI provided to them upon purchase of the plugin.
-SRC_URI = "gitsm://git@gitlab.com/RidgeRun/orders/<Customer-Directory>/gst-prerecord.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = "gitsm://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-pre-record.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
@@ -28,4 +26,4 @@ PACKAGECONFIG[gtk-doc] = "--enable-gtk-doc,--disable-gtk-doc,gtk-doc-native"
 
 EXTRA_AUTORECONF += "${@bb.utils.contains('PACKAGECONFIG', 'gtk-doc', '', ' --exclude=gtkdocize', d)}"
 
-inherit autotools pkgconfig gettext
+inherit autotools pkgconfig gettext rr_proprietary

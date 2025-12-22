@@ -10,15 +10,13 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base glib-2.0 glibc"
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-# Note: This SRC_URI points to RidgeRun's internal repository. Should
-# replace it with the repository URI provided to them upon purchase of the plugin.
-SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-motion-detect-1-0.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-motion-detect.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git/src"
 
 FILES:${PN} += " ${libdir}/gstreamer-1.0/libgstmotiondetect.so"
 
-inherit autotools pkgconfig gettext
+inherit autotools pkgconfig gettext rr_proprietary
 
 do_install:append() {
 	rm -f ${D}${libdir}/gstreamer-1.0/libgstmotiondetect.a

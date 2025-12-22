@@ -16,8 +16,6 @@ DEPENDS = " \
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-# Note: This SRC_URI points to RidgeRun's internal repository. Should
-# replace it with the repository URI provided to them upon purchase of the plugin.
 SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-sei.git;protocol=ssh;branch=${SRCBRANCH}"
 S = "${WORKDIR}/git"
 
@@ -37,7 +35,7 @@ PACKAGECONFIG[tests] = "-Dtests=enabled,-Dtests=disabled"
 EXTRA_OEMESON = "-Ddeveloper-mode=false"
 
 # Inherit necessary classes
-inherit meson pkgconfig
+inherit meson pkgconfig rr_proprietary
 
 # Package configuration
 PACKAGES_DYNAMIC = "^libsei.*"
