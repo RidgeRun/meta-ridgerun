@@ -10,6 +10,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad json-
 
 SRCBRANCH ?= "master"
 
+SRCREV_FORMAT = "base_common"
 SRCREV_base = "e92de7a5c14428fdf7d6be31e31c21fca89c345a"
 SRCREV_common = "b64f03f6090245624608beb5d2fff335e23a01c0"
 
