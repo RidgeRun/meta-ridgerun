@@ -5,6 +5,8 @@ SECTION = "multimedia"
 LICENSE = "LGPLv2"
 LIC_FILES_CHKSUM="file://LICENSE;md5=5f30f0716dfdd0d91eb439ebec522ec2"
 
+LIC_FILES_CHKSUM = "file://LICENSE;md5=5f30f0716dfdd0d91eb439ebec522ec2"
+
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-bad"
 
 SRCBRANCH ?= "master"
