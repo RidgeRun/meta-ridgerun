@@ -1,0 +1,21 @@
+From e3283cd0b6505b07785b385058d1524b70e1efb4 Mon Sep 17 00:00:00 2001
+From: Greivin Fallas <greivin.fallas@ridgerun.com>
+Date: Mon, 20 Apr 2020 20:01:55 -0600
+Subject: [PATCH] Link license file in sources folder
+
+---
+ libgstc/COPYING | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 120000 COPYING
+
+diff --git a/COPYING b/COPYING
+new file mode 120000
+index 0000000..012065c
+--- /dev/null
++++ b/COPYING
+@@ -0,0 +1 @@
++../COPYING
+\ No newline at end of file
+-- 
+2.7.4
+
