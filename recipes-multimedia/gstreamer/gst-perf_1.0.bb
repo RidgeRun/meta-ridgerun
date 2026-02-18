@@ -13,8 +13,10 @@ SRC_URI = "git://github.com/RidgeRun/gst-perf.git;protocol=https;branch=${SRCBRA
 
 S = "${WORKDIR}/git"
 
+EXTRA_OECONF += "--disable-static"
+
 INSANE_SKIP_${PN} = "dev-so"
-FILES_${PN} += "${libdir}/gstreamer-1.0/libgstperf.so \
+FILES:${PN} += "${libdir}/gstreamer-1.0/libgstperf.so \
                 ${libdir}/gstreamer-1.0/libgstperf.so.0 \
                 ${libdir}/gstreamer-1.0/libgstperf.so.0.0.0 \
                "

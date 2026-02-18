@@ -9,7 +9,7 @@ SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization
 SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base"
+DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base glib-2.0"
 inherit pkgconfig
 
 EXTRA_OEMAKE = "\
@@ -17,6 +17,8 @@ EXTRA_OEMAKE = "\
     INC_DIR=${includedir}/gst/rvs \
     LIB_DIR=${libdir} \
 "
+
+EXTRA_OEMAKE += 'LDFLAGS="${LDFLAGS}"'
 
 do_install() {
     install -d ${D}${includedir}/gst/rvs
