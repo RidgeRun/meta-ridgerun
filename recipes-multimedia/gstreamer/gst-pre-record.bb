@@ -12,7 +12,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
-SRC_URI = "gitsm://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-pre-record.git;protocol=ssh;branch=${SRCBRANCH}"
+SRC_URI = "gitsm://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-prerecord.git;protocol=ssh;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
