@@ -10,6 +10,7 @@ DEPENDS = " \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-bad \
     gstreamer1.0-rtsp-server \
+    gtk-doc-native \
     json-glib \
     libdaemon \
     jansson \
@@ -22,9 +23,12 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/RidgeRun/gstd-1.x.git;protocol=https;branch=${SRCBRANCH} \
-    file://gstd-yocto-disable-gtk-doc.patch \
-    "
+           file://gstd-yocto-fixes.patch \
+"
 S = "${WORKDIR}/git"
+
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[gtk-doc] = "--enable-gtk-doc,--disable-gtk-doc"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "gstd.service"
@@ -41,7 +45,9 @@ EXTRA_OECONF = " \
     "
 
 do_configure() {
-    ${S}/autogen.sh
+    cd ${S}
+    ./autogen.sh --noconfigure
+    cd ${B}
     oe_runconf
 }
 
