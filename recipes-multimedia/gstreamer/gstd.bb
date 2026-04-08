@@ -66,7 +66,9 @@ do_install() {
     rm -rf ${D}${localstatedir}/run
     rm -rf ${D}${localstatedir}/log
     rm -rf ${D}${localstatedir}/volatile/log
-    rmdir --ignore-fail-on-non-empty ${D}${localstatedir}/volatile || true
+    if [ -d ${D}${localstatedir}/volatile ]; then
+        rmdir --ignore-fail-on-non-empty ${D}${localstatedir}/volatile
+    fi
 }
 
 FILES:${PN} += " \
