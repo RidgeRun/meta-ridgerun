@@ -33,7 +33,7 @@ PACKAGECONFIG[gtk-doc] = "--enable-gtk-doc,--disable-gtk-doc"
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "gstd.service"
 
-inherit autotools gettext pkgconfig setuptools3 systemd
+inherit autotools gettext pkgconfig setuptools3 systemd rr_proprietary
 
 # Python API path
 SETUPTOOLS_SETUP_PATH = "${S}/libgstc/python"

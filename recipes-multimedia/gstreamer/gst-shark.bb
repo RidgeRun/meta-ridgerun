@@ -33,7 +33,7 @@ FILES:${PN} += " \
     ${libdir}/gstreamer-1.0/libgstsharktracers.la \
     "
 
-inherit autotools gettext pkgconfig gtk-doc
+inherit autotools gettext pkgconfig gtk-doc rr_proprietary
 
 do_configure() {
     ${S}/autogen.sh --noconfigure
