@@ -30,7 +30,6 @@ PACKAGECONFIG[graphviz] = "--enable-graphviz,--disable-graphviz,graphviz"
 
 FILES:${PN} += " \
     ${libdir}/gstreamer-1.0/libgstsharktracers.so \
-    ${libdir}/gstreamer-1.0/libgstsharktracers.la \
     "
 
 inherit autotools gettext pkgconfig gtk-doc rr_proprietary
