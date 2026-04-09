@@ -1,0 +1,37 @@
+diff --git a/gst_client/Makefile.am b/gst_client/Makefile.am
+index 7f85980..d367648 100644
+--- a/gst_client/Makefile.am
++++ b/gst_client/Makefile.am
+@@ -20,9 +20,9 @@ gst_client_@GSTD_API_VERSION@_LDFLAGS = \
+ 
+ install-exec-hook:
+ 	$(RM) $(DESTDIR)$(bindir)/gstd-client $(DESTDIR)$(bindir)/gst-client
+-	$(LN_S) $(DESTDIR)$(bindir)/gst-client-@GSTD_API_VERSION@ \
++	$(LN_S) $(bindir)/gst-client-@GSTD_API_VERSION@ \
+            $(DESTDIR)$(bindir)/gstd-client
+-	$(LN_S) $(DESTDIR)$(bindir)/gst-client-@GSTD_API_VERSION@ \
++	$(LN_S) $(bindir)/gst-client-@GSTD_API_VERSION@ \
+            $(DESTDIR)$(bindir)/gst-client
+ 
+ uninstall-hook:
+diff --git a/gstd/Makefile.am b/gstd/Makefile.am
+index e3d31d1..13b65a8 100644
+--- a/gstd/Makefile.am
++++ b/gstd/Makefile.am
+@@ -14,8 +14,7 @@ gstd_CFLAGS =                                                   \
+ gstd_LDFLAGS =                                  \
+                $(GSTD_LIBS)                     \
+                $(GST_LIBS)                      \
+-               $(LIBD_LIBS)                     \
+-	       -Wl,-rpath -Wl,$(libdir)
++               $(LIBD_LIBS)
+ 
+ gstd_LDADD = $(top_builddir)/libgstd/libgstd-1.0.la
+ 
+diff --git a/libgstc/python/Makefile.am b/libgstc/python/Makefile.am
+index a30715a..e69de29 100644
+--- a/libgstc/python/Makefile.am
++++ b/libgstc/python/Makefile.am
+@@ -1,2 +0,0 @@
+-install-am:
+-	@sudo -H pip3 install .
