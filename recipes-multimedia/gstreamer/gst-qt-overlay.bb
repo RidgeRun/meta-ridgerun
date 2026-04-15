@@ -28,13 +28,13 @@ FILES:${PN} += " \
 
 EXTRA_OEMAKE += " 'CFLAGS=${CFLAGS} -DGL_GLEXT_PROTOTYPES  ' "
 do_configure:prepend() {
-  export PATH=$PATH:${RECIPE_SYSROOT_NATIVE}/usr/bin/qt5/
+  export PATH=$PATH:${RECIPE_SYSROOT_NATIVE}${bindir}/qt5/
 }
 
 do_compile:prepend() {
-  export PATH=$PATH:${RECIPE_SYSROOT_NATIVE}/usr/bin/qt5/
+  export PATH=$PATH:${RECIPE_SYSROOT_NATIVE}${bindir}/qt5/
 }
 
 do_install:append() {
-  rm -f ${D}/usr/lib/gstreamer-1.0/libgstqtoverlay.a
+  rm -f ${D}${libdir}/gstreamer-1.0/libgstqtoverlay.a
 }
