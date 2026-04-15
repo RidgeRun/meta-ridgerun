@@ -1,11 +1,15 @@
 SUMMARY = "Gst-ISP plugin"
-DESCRIPTION = "Gst-ISP plugin"
+DESCRIPTION = "Gst-ISP is a GPU-accelerated GStreamer plugin for image signal processing."
 HOMEPAGE = "https://www.ridgerun.com/gstisp"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://${THISDIR}/../../COPYING;md5=d28c53f3a5ec6efa235f27afaaa18be1"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gst-opencl"
+DEPENDS = " \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gst-opencl \
+"
 
 SRCBRANCH ?= "master"
 SRCREV = "${AUTOREV}"
@@ -19,7 +23,9 @@ FILES:${PN} += " \
     ${libdir}/libgstisp.so.0.0.0 \
 "
 
-EXTRA_OECONF += " --disable-tests --disable-developer"
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[tests] = "--enable-tests,--disable-tests"
+PACKAGECONFIG[developer] = "--enable-developer,--disable-developer"
 
 inherit autotools pkgconfig gettext rr_proprietary
 
