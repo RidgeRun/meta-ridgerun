@@ -3,7 +3,7 @@ DESCRIPTION = "GStreamer plugin to add meta-data as SEI NAL units"
 HOMEPAGE = "https://www.ridgerun.com/gstseimetadata"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
-LIC_FILES_CHKSUM = "file://${THISDIR}/../../COPYING;md5=d28c53f3a5ec6efa235f27afaaa18be1"
+LIC_FILES_CHKSUM = "file://COPYING;md5=2207b8e5f4ab4b3a0c794e43f2002ea3"
 
 
 DEPENDS = " \
