@@ -4,7 +4,7 @@ HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=GStreamer_pre-re
 SECTION = "multimedia"
 LICENSE = "Proprietary"
 
-LIC_FILES_CHKSUM = "file://${THISDIR}/../../COPYING;md5=d28c53f3a5ec6efa235f27afaaa18be1"
+LIC_FILES_CHKSUM = "file://COPYING;md5=1887e8dfc90a84423fd31d1d45ee6718"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libffi"
 

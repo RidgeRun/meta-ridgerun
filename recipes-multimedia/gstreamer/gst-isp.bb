@@ -3,7 +3,7 @@ DESCRIPTION = "Gst-ISP is a GPU-accelerated GStreamer plugin for image signal pr
 HOMEPAGE = "https://www.ridgerun.com/gstisp"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
-LIC_FILES_CHKSUM = "file://${THISDIR}/../../COPYING;md5=d28c53f3a5ec6efa235f27afaaa18be1"
+LIC_FILES_CHKSUM = "file://COPYING;md5=46819161aba98ab8c502e93a15713e58"
 
 DEPENDS = " \
     gstreamer1.0 \
