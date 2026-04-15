@@ -28,7 +28,7 @@ FILES:${PN} += " \
     ${libdir}/libgstopencl.so.0.0.0 \
 "
 
-inherit autotools pkgconfig gettext
+inherit autotools pkgconfig gettext rr_proprietary
 
 do_configure() {
     ${S}/autogen.sh
