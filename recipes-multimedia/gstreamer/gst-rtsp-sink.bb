@@ -3,7 +3,6 @@ DESCRIPTION = "GStreamer element which permits high performance streaming to mul
 HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php?title=GstRtspSink"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
-
 LIC_FILES_CHKSUM = "file://COPYING;md5=1887e8dfc90a84423fd31d1d45ee6718"
 
 DEPENDS = " \
@@ -14,17 +13,18 @@ DEPENDS = " \
     "
 
 SRCBRANCH ?= "master"
-SRCREV = "00ba80901c2fef77822f6e3d14dc82088b70434f"
+SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/gst-rtsp-sink.git;protocol=ssh;branch=${SRCBRANCH}"
-
-S = "${WORKDIR}/git/src"
+S = "${WORKDIR}/git"
 
 FILES:${PN} += " \
     ${libdir}/gstreamer-1.0/libgstrtspsink.so \
-    ${libdir}/gstreamer-1.0/libgstrtspsink.la \
     "
 
 inherit autotools pkgconfig gettext rr_proprietary
+
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[developer] = "--enable-developer,--disable-developer"
 
 INSANE_SKIP:${PN} += "dev-so"
