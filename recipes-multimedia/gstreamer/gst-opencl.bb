@@ -1,5 +1,5 @@
 SUMMARY = "GstOpenCL Plugin"
-DESCRIPTION = "GstOpenCL plugin"
+DESCRIPTION = "GstOpenCL is a GStreamer plugin that enables hardware-accelerated processing using OpenCL"
 SECTION = "multimedia"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://${THISDIR}/../../COPYING;md5=d28c53f3a5ec6efa235f27afaaa18be1"
