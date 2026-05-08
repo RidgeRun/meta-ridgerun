@@ -4,7 +4,7 @@ HOMEPAGE = "https://developer.ridgerun.com/wiki/index.php/Fast_GStreamer_overlay
 SECTION = "multimedia"
 LICENSE = "Proprietary"
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=46819161aba98ab8c502e93a15713e58"
+LIC_FILES_CHKSUM = "file://COPYING;md5=1887e8dfc90a84423fd31d1d45ee6718"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base cairo"
 
