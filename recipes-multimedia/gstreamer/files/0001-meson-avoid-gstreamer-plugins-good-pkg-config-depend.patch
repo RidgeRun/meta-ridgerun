@@ -1,0 +1,24 @@
+From 657579867bcaf7628af2b6a892566976300aca4e Mon Sep 17 00:00:00 2001
+From: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
+Date: Fri, 26 Jun 2026 11:22:42 -0600
+Subject: [PATCH] meson: avoid gstreamer-plugins-good pkg-config dependency
+
+Signed-off-by: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
+---
+ meson.build | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 75726fd..0c4b36a 100644
+--- a/meson.build
++++ b/meson.build
+@@ -31,8 +31,7 @@ gstallocators_dep = dependency('gstreamer-allocators-1.0', version : gst_req,
+     fallback : ['gst-plugins-base', 'allocators_dep'])
+ gstvideo_dep = dependency('gstreamer-video-1.0', version : gst_req,
+     fallback : ['gst-plugins-base', 'video_dep'])
+-gstgood_dep = dependency('gstreamer-plugins-good-1.0', version : gst_req,
+-    fallback : ['gst-plugins-base', 'gstgood_dep'])
++gstgood_dep = declare_dependency(dependencies : gst_dep)
+ gstcameradrivermeta_dep = cc.find_library('gstcameradrivermeta', required: true)
+ 
+ # Symbol visibility
