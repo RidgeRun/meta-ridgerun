@@ -1,6 +1,7 @@
 SUMMARY = "RidgeRun GStreamer camera driver metadata library"
 SECTION = "multimedia"
-LICENSE = "CLOSED"
+LICENSE = "LGPL-2.1-or-later"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstcameradrivermeta.git;protocol=https;branch=master"
 

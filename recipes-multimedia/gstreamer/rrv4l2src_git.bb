@@ -1,7 +1,8 @@
 SUMMARY = "RidgeRun custom V4L2 source GStreamer plugin"
 DESCRIPTION = "Custom RidgeRun V4L2 source plugin with timestamp metadata support"
 SECTION = "multimedia"
-LICENSE = "CLOSED"
+LICENSE = "LGPL-2.1-or-later"
+LIC_FILES_CHKSUM = "file://COPYING;md5=c71b653a0f608a58cdc5693ae57126bc"
 
 SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/gst-v4l2src.git;protocol=https;branch=feature/add-timestamp-metadata \
            file://0001-meson-avoid-gstreamer-plugins-good-pkg-config-depend.patch \
