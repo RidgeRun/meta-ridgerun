@@ -54,7 +54,7 @@ PACKAGECONFIG ??= "opencl"
 PACKAGECONFIG:cuda = "cuda"
 
 PACKAGECONFIG[cuda] = "-Denable-cuda=enabled,-Denable-cuda=disabled,cuda-cudart"
-PACKAGECONFIG[opencl] = "-Denable-opencl=enabled,-Denable-opencl=disabled,opencl-headers virtual/opencl-icd"
+PACKAGECONFIG[opencl] = "-Denable-opencl=enabled,-Denable-opencl=disabled,opencl-headers opencl-clhpp virtual/opencl-icd"
 
 EXTRA_OEMESON += " \
     --optimization=3 \
