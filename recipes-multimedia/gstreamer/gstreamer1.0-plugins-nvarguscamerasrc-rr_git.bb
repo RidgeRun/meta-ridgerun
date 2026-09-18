@@ -5,7 +5,8 @@ LICENSE = "BSD-3-Clause & Proprietary"
 LIC_FILES_CHKSUM = "file://README.txt;endline=25;md5=364434949752edc42711344c8401d55b \
                     file://nvbufsurface.h;endline=9;md5=15dccc547ee18664b1b6d1ece602942b"
 
-SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstnvarguscamerasrc.git;protocol=https;branch=jetpack-6.x \
+BRANCH ?= "jetpack-6.x"
+SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstnvarguscamerasrc.git;protocol=https;branch=${BRANCH} \
            file://0001-nvarguscamerasrc-use-JetPack-6-Argus-error-event-typ.patch \
            "
 
@@ -83,4 +84,3 @@ do_install() {
 FILES:${PN} += "  \
 ${libdir}/gstreamer-1.0/libgstnvarguscamerasrc.so  \
 "
-

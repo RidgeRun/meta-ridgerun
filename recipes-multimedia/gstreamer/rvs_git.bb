@@ -3,8 +3,8 @@ DESCRIPTION = "RidgeRun Video Stabilization Library with optional OpenCV/OpenCL/
 SECTION = "multimedia"
 LICENSE = "CLOSED"
 
-SRCBRANCH ?= "master"
-SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/ridgerun-video-stabilizer.git;protocol=ssh;branch=${SRCBRANCH}"
+BRANCH ?= "master"
+SRC_URI = "git://git@gitlab.ridgerun.com/ridgerun/orders/${RR_CUSTOMER_GITLAB_ORDER_DIR}/ridgerun-video-stabilizer.git;protocol=ssh;branch=${BRANCH}"
 
 PV = "1.0+git"
 SRCREV = "${AUTOREV}"

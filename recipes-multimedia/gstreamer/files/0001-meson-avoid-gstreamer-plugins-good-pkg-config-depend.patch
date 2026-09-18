@@ -3,6 +3,13 @@ From: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
 Date: Fri, 26 Jun 2026 11:22:42 -0600
 Subject: [PATCH] meson: avoid gstreamer-plugins-good pkg-config dependency
 
+OpenEmbedded's gstreamer1.0-plugins-good recipe does not provide the
+gstreamer-plugins-good-1.0 pkg-config module, causing Meson configuration to
+fail. The plugin only uses APIs provided by gstreamer-1.0, so use gst_dep for
+this dependency instead.
+
+Upstream-Status: Inappropriate [OpenEmbedded packaging]
+
 Signed-off-by: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
 ---
  meson.build | 3 +--

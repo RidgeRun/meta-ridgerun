@@ -3,7 +3,8 @@ SECTION = "multimedia"
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
-SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstcameradrivermeta.git;protocol=https;branch=master"
+BRANCH ?= "master"
+SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/ridgerun-video-stabilization/gstcameradrivermeta.git;protocol=https;branch=${BRANCH}"
 
 PV = "1.0+git"
 SRCREV = "fe3052d7d34723b8e25149ea3bfe476d0211763b"

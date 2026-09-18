@@ -4,7 +4,8 @@ SECTION = "multimedia"
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=c71b653a0f608a58cdc5693ae57126bc"
 
-SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/gst-v4l2src.git;protocol=https;branch=feature/add-timestamp-metadata \
+BRANCH ?= "feature/add-timestamp-metadata"
+SRC_URI = "git://gitlab.ridgerun.com/open/gstreamer/gst-v4l2src.git;protocol=https;branch=${BRANCH} \
            file://0001-meson-avoid-gstreamer-plugins-good-pkg-config-depend.patch \
            "
 
