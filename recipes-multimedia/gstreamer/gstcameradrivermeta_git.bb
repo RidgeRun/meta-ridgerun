@@ -12,6 +12,8 @@ SRCREV = "fe3052d7d34723b8e25149ea3bfe476d0211763b"
 S = "${WORKDIR}/git"
 B = "${S}"
 
+COMPATIBLE_MACHINE = ".*"
+
 inherit pkgconfig
 
 DEPENDS += " \

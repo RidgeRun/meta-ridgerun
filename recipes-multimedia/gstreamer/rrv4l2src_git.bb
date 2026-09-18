@@ -14,6 +14,8 @@ SRCREV = "8885d5c60d0adc9c71ab7134d59e1546d54b817c"
 
 S = "${WORKDIR}/git"
 
+COMPATIBLE_MACHINE = ".*"
+
 inherit meson pkgconfig
 
 DEPENDS += " \

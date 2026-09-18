@@ -11,6 +11,8 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
+COMPATIBLE_MACHINE = ".*"
+
 inherit meson pkgconfig
 
 # meta-tegra adds the "cuda" override for all Jetson machines. Only inherit
