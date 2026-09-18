@@ -1,0 +1,49 @@
+From e940d58677c390d8f92b121fe35a8a8280a0c038 Mon Sep 17 00:00:00 2001
+From: Zihua Wu <zihuaw@nvidia.com>
+Date: Thu, 29 Aug 2024 14:19:23 +0800
+Subject: [PATCH] cuda: translate external linker flags before passing to nvcc
+
+Backport the behaviour of upstream Meson commit e940d58677c ("fix
+LDFLAGS for cuda") to Meson 1.3.1.
+
+Newer Meson converts CUDA's external link arguments while it creates the
+CUDA option.  In Meson 1.3.1 the Yocto-generated LDFLAGS reach the Ninja
+backend after that point, so converting the option during compiler detection
+does not affect the final rule.
+
+Convert the external arguments at their final consumption point instead.
+This uses Meson 1.3.1's existing CudaCompiler._to_host_flags() implementation
+and only changes links whose selected linker is CUDA.  Normal C/C++ links and
+meta-tegra's already-translated CUFLAGS are left unchanged.
+
+Upstream-Status: Backport [e940d58677c390d8f92b121fe35a8a8280a0c038]
+Signed-off-by: RidgeRun Yocto Integration <yocto@ridgerun.com>
+---
+ mesonbuild/backend/ninjabackend.py | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/mesonbuild/backend/ninjabackend.py b/mesonbuild/backend/ninjabackend.py
+index c8e44d7..a2c7ad5 100644
+--- a/mesonbuild/backend/ninjabackend.py
++++ b/mesonbuild/backend/ninjabackend.py
+@@ -3402,7 +3402,17 @@
+             commands += self.build.get_global_link_args(linker, target.for_machine)
+             # Link args added from the env: LDFLAGS. We want these to override
+             # all the defaults but not the per-target link args.
+-            commands += self.environment.coredata.get_external_link_args(target.for_machine, linker.get_language())
++            external_link_args = self.environment.coredata.get_external_link_args(
++                target.for_machine, linker.get_language())
++            if linker.get_language() == 'cuda':
++                # nvcc cannot consume GCC-driver flags such as --sysroot and
++                # -Wl,... directly.  Pass external LDFLAGS through CUDA's
++                # existing host-flag translator before emitting the Ninja rule.
++                from ..compilers.cuda import CudaCompiler, _Phase
++                assert isinstance(linker, CudaCompiler)
++                external_link_args = linker._to_host_flags(external_link_args,
++                                                            _Phase.LINKER)
++            commands += external_link_args
+ 
+         # Now we will add libraries and library paths from various sources
+ 
+-- 
+2.47.1

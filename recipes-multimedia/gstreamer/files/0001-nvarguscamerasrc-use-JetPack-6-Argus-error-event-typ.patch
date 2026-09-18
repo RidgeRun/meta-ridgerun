@@ -1,0 +1,34 @@
+From 7bc878c8e78172755a3a2548b630b1c4849cbb9a Mon Sep 17 00:00:00 2001
+From: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
+Date: Fri, 26 Jun 2026 12:13:35 -0600
+Subject: [PATCH] nvarguscamerasrc: use JetPack 6 Argus error event types
+
+Signed-off-by: Daniel Gonzalez <daniel.gonzalez@ridgerun.com>
+---
+ gstnvarguscamerasrc.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/gstnvarguscamerasrc.cpp b/gstnvarguscamerasrc.cpp
+index e8f063d..e92212d 100644
+--- a/gstnvarguscamerasrc.cpp
++++ b/gstnvarguscamerasrc.cpp
+@@ -392,7 +392,8 @@ bool StreamConsumer::threadExecute(GstNvArgusCameraSrc *src)
+     // Retrieved event types
+     frame_event = iEvent->getEventType();
+ 
+-    if (frame_event == EVENT_TYPE_ERROR)
++    if (frame_event == Argus::EVENT_TYPE_ERROR_UNCORR ||
++        frame_event == Argus::EVENT_TYPE_ERROR_CORR)
+     {
+       if (src->stop_requested == TRUE  || src->timeout_complete == TRUE)
+         break;
+@@ -851,7 +852,8 @@ static bool execute(int32_t cameraIndex,
+ 
+   // Argus drops EVENT_TYPE_ERROR if all 3 events are not set. Setting all for now
+   eventTypes.push_back(EVENT_TYPE_CAPTURE_COMPLETE);
+-  eventTypes.push_back(EVENT_TYPE_ERROR);
++  eventTypes.push_back(Argus::EVENT_TYPE_ERROR_UNCORR);
++  eventTypes.push_back(Argus::EVENT_TYPE_ERROR_CORR);
+   eventTypes.push_back(EVENT_TYPE_CAPTURE_STARTED);
+ 
+   src->queue = UniqueObj<EventQueue>(iEventProvider->createEventQueue(eventTypes));
